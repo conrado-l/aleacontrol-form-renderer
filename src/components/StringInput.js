@@ -4,7 +4,8 @@ import PropTypes from 'prop-types'
 class StringInput extends Component {
   render () {
     return (
-      <input type='text'
+      <input type='text form'
+        className='form-control'
         name={this.props.name}
         value={this.props.value}
         onChange={(e) => this.props.update(this.props.name, e.target.value)} />

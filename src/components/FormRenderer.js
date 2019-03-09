@@ -5,6 +5,7 @@ import StringInput from './StringInput'
 import EmailInput from './EmailInput'
 import RadioInput from './RadioInput'
 import PhoneInput from './PhoneInput'
+import Button from 'react-bootstrap/Button';
 
 class FormRenderer extends Component {
     constructor(props) {
@@ -86,7 +87,10 @@ class FormRenderer extends Component {
                 {
                     'label': 'Phone number',
                     'name': 'phone_number',
-                    'value': null,
+                    'value': {
+                        ext: '+387',
+                        phone: '123456'
+                    },
                     'component': 'phone',
                     options: [
                         {
@@ -98,8 +102,6 @@ class FormRenderer extends Component {
                             description: 'Argentina'
                         }
                     ],
-                    'ext': '+54',
-                    'phone': '123456'
                 }
             ],
             request: {}
@@ -115,14 +117,16 @@ class FormRenderer extends Component {
     }
 
     updateFormInput(inputKey, inputValue) {
+        const newRequestState = {...this.state.request};
+        newRequestState[inputKey] = inputValue;
         this.setState({
-                // request[inputKey] = inputValue
+                request: newRequestState
             }
         )
     }
 
     sendForm() {
-        console.log(this.state)
+        console.log(this.state.request)
     }
 
     render() {
@@ -136,11 +140,12 @@ class FormRenderer extends Component {
         })
 
         return (
-            <div>
-                {inputs}
-                <button onClick={this.sendForm.bind(this)} />
+            <div className='container'>
+                <form className='col-md-4 col-sm-12 col-xl-3'>
+                    {inputs}
+                    <Button onClick={this.sendForm.bind(this)}> Send Form</Button>
+                </form>
             </div>
-
         )
     }
 }

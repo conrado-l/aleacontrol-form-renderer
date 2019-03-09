@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 class InputContainer extends Component {
   render () {
     return (
-      <div className='inputContainer'>
+      <div className='form-group'>
         <label>{this.props.label}</label>
         <div>{this.props.children}</div>
       </div>

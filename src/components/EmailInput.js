@@ -14,6 +14,7 @@ class EmailInput extends Component {
 
 EmailInput.propTypes = {
   name: PropTypes.string,
-  value: PropTypes.string
+  value: PropTypes.string,
+  update: PropTypes.func
 }
 export default EmailInput

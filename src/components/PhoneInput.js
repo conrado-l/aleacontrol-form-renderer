@@ -4,11 +4,29 @@ import SelectInput from './SelectInput'
 import StringInput from './StringInput'
 
 class PhoneInput extends Component {
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      ext: props.value.ext,
+      phone: props.value.phone
+    }
+
+    this.updatePhone = this.updatePhone.bind(this)
+  }
+
+  updatePhone (inputKey, inputValue) {
+    // Update state, wait for the state update and send the new phone object to the parent
+    this.setState({ [inputKey]: inputValue }, () => {
+      this.props.update('phone', this.state)
+    })
+  }
+
   render () {
     return (
       <div>
-        <SelectInput name={this.props.name} value={this.props.ext} options={this.props.options} update={this.props.update} />
-        <StringInput value={this.props.phone} update={this.props.update} />
+        <SelectInput name='ext' value={this.state.ext} options={this.props.options} update={this.updatePhone} />
+        <StringInput name='phone' value={this.state.phone} update={this.updatePhone} />
       </div>
     )
   }
@@ -16,10 +34,8 @@ class PhoneInput extends Component {
 
 PhoneInput.propTypes = {
   name: PropTypes.string,
-  value: PropTypes.string,
+  value: PropTypes.object,
   options: PropTypes.array,
-  phone: PropTypes.string,
-  ext: PropTypes.string,
   update: PropTypes.func
 }
 
