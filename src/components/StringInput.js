@@ -14,7 +14,8 @@ class StringInput extends Component {
 
 StringInput.propTypes = {
   value: PropTypes.string,
-  name: PropTypes.string
+  name: PropTypes.string,
+  update: PropTypes.func
 }
 
 export default StringInput

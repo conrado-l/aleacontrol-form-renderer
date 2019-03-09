@@ -6,7 +6,7 @@ class EmailInput extends Component {
     return (
       <input type='email'
         name={this.props.name}
-        value={this.props.value}
+        value={this.props.value ? this.props.value : ''}
         onChange={(e) => this.props.update(this.props.name, e.target.value)} />
     )
   }

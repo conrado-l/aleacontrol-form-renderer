@@ -20,7 +20,7 @@ PhoneInput.propTypes = {
   options: PropTypes.array,
   phone: PropTypes.string,
   ext: PropTypes.string,
-  update: PropTypes.object
+  update: PropTypes.func
 }
 
 export default PhoneInput
