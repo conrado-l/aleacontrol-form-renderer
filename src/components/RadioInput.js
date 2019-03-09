@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 class RadioInput extends Component {
     // Generate the radio button options
-    inputs = this.props.options.map((input) => {
+    buttons = this.props.options.map((input) => {
         return <div key={input.value}>
             <input type='radio' id={input.value} name={this.props.name} value={input.value}/>
             <label htmlFor={input.value}> {input.description} </label>
@@ -12,8 +12,8 @@ class RadioInput extends Component {
 
     render() {
         return (
-            <div>
-                {this.inputs}
+            <div onChange={(e) => this.props.update(this.props.name, e.target.value)}>
+                {this.buttons}
             </div>
         )
     }

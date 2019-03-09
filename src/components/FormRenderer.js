@@ -1,8 +1,21 @@
 import React, {Component} from 'react'
-import DynamicInput from './DynamicInput'
 import InputContainer from './InputContainer'
+import SelectInput from './SelectInput'
+import StringInput from './StringInput'
+import EmailInput from './EmailInput'
+import RadioInput from './RadioInput'
+import PhoneInput from './PhoneInput'
 
 class FormRenderer extends Component {
+
+    components = {
+        'string': StringInput,
+        'email': EmailInput,
+        'radio': RadioInput,
+        'select': SelectInput,
+        'phone': PhoneInput
+    }
+
     sample = [
         {
             'label': 'First name',
@@ -74,20 +87,39 @@ class FormRenderer extends Component {
             ],
             'component': 'select',
             'col': 6
+        },
+        {
+            'label': 'Phone number',
+            'name': 'phone_number',
+            'value': null,
+            'component': 'phone',
+            options: [
+                {
+                    value: '387',
+                    description: 'Bosnia and Herzegovina'
+                },
+                {
+                    value: '54',
+                    description: 'Argentina'
+                }
+            ],
+            'ext': '+54',
+            'phone': '123456'
         }
+
     ]
 
-    // Render the correct input component dynamically
-    inputs = this.sample.map((item) => {
-        return <InputContainer key={item.name} label={item.label}>
-            <DynamicInput
-                component={item.component}
-                data={item}
-                name={item.name}
-                label={item.label}
-                value={item.value}
-                options={item.options ? item.options : null}
-                key={item.name}/>
+    updateFormInput(inputKey, inputValue) {
+        this.setState({[inputKey]: inputValue})
+    }
+
+    // Render the dynamic inputs
+    inputs = this.sample.map((input) => {
+        // Create the correct JSX input component tag dynamically
+        const DynamicInputTag = this.components[input.component]
+
+        return <InputContainer key={input.name} label={input.label}>
+            <DynamicInputTag {...input} update={this.updateFormInput.bind(this)}/> { /* Add every input property as an individual prop*/ }
         </InputContainer>
     })
 

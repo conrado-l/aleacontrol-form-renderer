@@ -14,6 +14,7 @@ class InputContainer extends Component {
 }
 
 InputContainer.propTypes = {
-  label: PropTypes.string
+  label: PropTypes.string,
+  children: PropTypes.element.isRequired
 }
 export default InputContainer
