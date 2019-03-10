@@ -176,20 +176,27 @@ class FormRenderer extends Component {
         )
     }
 
-    render() {
-        const inputs = this.state.form.map((input) => {
-            // Create the correct JSX input component tag dynamically
+    /**
+     * Renders the inputs dynamically according to the mapping
+     * @returns {any[]}
+     */
+    renderInputs() {
+        return this.state.form.map((input) => {
+
             const DynamicInputTag = this.components[input.component]
 
             return <InputContainer key={input.name} label={input.label}>
                 <DynamicInputTag {...input} update={this.updateFormInput}/>
             </InputContainer>
         })
+    }
+
+    render() {
 
         return (
             <form className='form-renderer rounded p-3 my-5 col-md-6 col-sm-6 col-xs-12 col-xl-3'>
-                {inputs}
-                <hr />
+                {this.renderInputs()}
+                <hr/>
                 <div className='d-flex justify-content-around'>
                     <Button variant='outline-info' onClick={this.changeSampleData}> Change Data</Button>
                     <Button variant='outline-primary' onClick={this.sendForm}> Send Form</Button>

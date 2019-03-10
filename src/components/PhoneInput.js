@@ -15,8 +15,12 @@ class PhoneInput extends Component {
     this.updatePhone = this.updatePhone.bind(this)
   }
 
+  /**
+   * Updates state, wait for the state update and send the new phone object to the parent
+   * @param inputKey
+   * @param inputValue
+   */
   updatePhone (inputKey, inputValue) {
-    // Update state, wait for the state update and send the new phone object to the parent
     this.setState({ [inputKey]: inputValue }, () => {
       this.props.update('phone', this.state)
     })
