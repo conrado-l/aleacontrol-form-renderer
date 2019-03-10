@@ -39,7 +39,7 @@ class FormRenderer extends Component {
                 {
                     'label': 'Gender',
                     'name': 'gender',
-                    'value': null,
+                    'value': 'male',
                     'options': [
                         {
                             description: 'Male',
@@ -191,8 +191,8 @@ class FormRenderer extends Component {
                 {inputs}
                 <hr />
                 <div className='d-flex justify-content-around'>
-                    <Button variant='info' onClick={this.changeSampleData}> Change Data</Button>
-                    <Button variant='primary' onClick={this.sendForm}> Send Form</Button>
+                    <Button variant='outline-info' onClick={this.changeSampleData}> Change Data</Button>
+                    <Button variant='outline-primary' onClick={this.sendForm}> Send Form</Button>
                 </div>
             </form>
         )

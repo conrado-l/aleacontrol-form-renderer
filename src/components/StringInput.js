@@ -5,7 +5,7 @@ class StringInput extends Component {
   render () {
     return (
       <input type='text'
-        className={`form-control col-xs-12 col-${this.props.col}`}
+        className={`form-control col-xs-12 col-md-${this.props.col}`}
         name={this.props.name}
         value={this.props.value}
         onChange={(e) => this.props.update(this.props.name, e.target.value)} />

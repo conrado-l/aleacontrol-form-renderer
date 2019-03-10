@@ -5,7 +5,7 @@ class InputContainer extends Component {
   render () {
     return (
       <div className='form-group'>
-        <label>{this.props.label}</label>
+        <label htmlFor={this.props.for}>{this.props.label}</label>
         <div>{this.props.children}</div>
       </div>
 
@@ -15,6 +15,7 @@ class InputContainer extends Component {
 
 InputContainer.propTypes = {
   label: PropTypes.string,
+  for: PropTypes.string,
   children: PropTypes.object
 }
 export default InputContainer

@@ -68,16 +68,22 @@ class MultiStringInput extends Component {
     this.setState({ stringInputs: clearedInputs }) // TODO: delete array in parent?
   }
 
-  render () {
-    let inputs = this.state.stringInputs.map((input, index) => {
+  /**
+   * Renders the inputs
+   * @returns {*}
+   */
+  renderInputs () {
+    return this.state.stringInputs.map((input, index) => {
       return <div className='form-inline mb-3' key={index}>
         <StringInput name={`${index}`} value={input} update={this.updateRow} />
       </div>
     })
+  }
 
+  render () {
     return (
       <div>
-        {inputs}
+        {this.renderInputs()}
         <div className='d-flex justify-content-between'>
           <Button variant='outline-success' onClick={this.addRow}> Add</Button>
           <Button variant='outline-warning' disabled={!this.state.stringInputs.length} onClick={this.clearInputs}> Clear inputs </Button>
