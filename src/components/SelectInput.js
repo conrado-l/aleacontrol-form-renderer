@@ -9,7 +9,7 @@ class SelectInput extends Component {
     })
 
     return (
-      <select className='form-control' onChange={(e) => this.props.update(this.props.name, e.target.value)}>
+      <select className={`form-control col-xs-12 col-md-${this.props.col}`} onChange={(e) => this.props.update(this.props.name, e.target.value)}>
         {options}
       </select>
     )
@@ -18,6 +18,8 @@ class SelectInput extends Component {
 
 SelectInput.propTypes = {
   options: PropTypes.array,
-  name: PropTypes.string
+  name: PropTypes.string,
+  col: PropTypes.number,
+  update: PropTypes.func
 }
 export default SelectInput

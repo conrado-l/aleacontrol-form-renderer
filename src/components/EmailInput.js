@@ -5,8 +5,9 @@ class EmailInput extends Component {
   render () {
     return (
       <input type='email'
+        className={`form-control col-xs-12 col-md-${this.props.col}`}
         name={this.props.name}
-        value={this.props.value ? this.props.value : ''}
+        value={this.props.value}
         onChange={(e) => this.props.update(this.props.name, e.target.value)} />
     )
   }
@@ -15,6 +16,7 @@ class EmailInput extends Component {
 EmailInput.propTypes = {
   name: PropTypes.string,
   value: PropTypes.string,
+  col: PropTypes.number,
   update: PropTypes.func
 }
 export default EmailInput

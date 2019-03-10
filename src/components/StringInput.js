@@ -4,8 +4,8 @@ import PropTypes from 'prop-types'
 class StringInput extends Component {
   render () {
     return (
-      <input type='text form'
-        className='form-control'
+      <input type='text'
+        className={`form-control col-xs-12 col-md-${this.props.col}`}
         name={this.props.name}
         value={this.props.value}
         onChange={(e) => this.props.update(this.props.name, e.target.value)} />
@@ -16,6 +16,7 @@ class StringInput extends Component {
 StringInput.propTypes = {
   value: PropTypes.string,
   name: PropTypes.string,
+  col: PropTypes.number,
   update: PropTypes.func
 }
 
