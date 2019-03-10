@@ -79,9 +79,9 @@ class MultiStringInput extends Component {
       <div>
         {inputs}
         <div className='d-flex justify-content-between'>
-          <Button className='btn-success' onClick={this.addRow}> Add</Button>
-          <Button className='btn-warning' disabled={!this.state.stringInputs.length} onClick={this.clearInputs}> Clear inputs </Button>
-          <Button className='btn-danger' disabled={!this.state.stringInputs.length} onClick={this.deleteLastInput}> Delete last input </Button>
+          <Button variant='outline-success' onClick={this.addRow}> Add</Button>
+          <Button variant='outline-warning' disabled={!this.state.stringInputs.length} onClick={this.clearInputs}> Clear inputs </Button>
+          <Button variant='outline-danger' disabled={!this.state.stringInputs.length} onClick={this.deleteLastInput}> Delete last input </Button>
         </div>
       </div>
     )

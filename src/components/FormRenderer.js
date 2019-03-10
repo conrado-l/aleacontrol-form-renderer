@@ -191,8 +191,8 @@ class FormRenderer extends Component {
                 {inputs}
                 <hr />
                 <div className='d-flex justify-content-around'>
-                    <Button className='m-*-auto' onClick={this.sendForm}> Send Form</Button>
-                    <Button className='m-*-auto' onClick={this.changeSampleData}> Change Data</Button>
+                    <Button variant='info' onClick={this.changeSampleData}> Change Data</Button>
+                    <Button variant='primary' onClick={this.sendForm}> Send Form</Button>
                 </div>
             </form>
         )

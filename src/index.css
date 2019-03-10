@@ -2,7 +2,7 @@ body {
   min-height: 100%;
   margin: 0;
   padding: 0;
-  background-color: #f35f5f05 !important;
+  background: url('./assets/images/alea-green-background.png') no-repeat;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
