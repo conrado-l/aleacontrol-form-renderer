@@ -12,8 +12,8 @@ class MultiStringInput extends Component {
     }
 
     this.addRow = this.addRow.bind(this)
-    this.deleteRow = this.deleteRow.bind(this)
     this.updateRow = this.updateRow.bind(this)
+    this.deleteLastInput = this.deleteLastInput.bind(this)
     this.deleteInputs = this.deleteInputs.bind(this)
     this.clearInputs = this.clearInputs.bind(this)
   }
@@ -23,9 +23,8 @@ class MultiStringInput extends Component {
   }
 
   /**
-     * Add a new input row
-     */
-
+  * Adds a new input row
+  */
   addRow () {
     this.setState(prevState => ({
       stringInputs: [...prevState.stringInputs, '']
@@ -33,57 +32,57 @@ class MultiStringInput extends Component {
   }
 
   /**
-       * Delete an specific input
-       * @param {string} inputContent Input
-       */
-  deleteRow (inputContent) { // TODO: delete by element index?
-    let filteredInputs = this.state.stringInputs.filter(input => {
-      return input !== inputContent
-    })
-    this.setState({ stringInputs: filteredInputs }, () => this.updateMultiString())
+   * Deletes the last row
+   * According to the JSON sample, there is no ID in every input, so I can't delete by ID individually adding a
+   * delete button for every row
+   */
+  deleteLastInput () {
+    let deletedLastInputState = [...this.state.stringInputs]
+    deletedLastInputState.splice(this.state.stringInputs.length - 1, 1)
+    this.setState({ stringInputs: deletedLastInputState }, () => this.updateMultiString())
   }
 
   /**
-     * Update an input value
-     */
-
+  * Updates an input value
+  */
   updateRow (index, value) {
-    let updatedRow = this.state.stringInputs[index]
-    this.setState(prevState => ({
-      stringInputs: [...prevState.stringInputs, '']
-    }), () => this.updateMultiString())
+    let inputs = this.state.stringInputs
+    inputs[index] = value
+    this.setState({
+      stringInputs: inputs
+    }, () => this.updateMultiString())
   }
 
   /**
-     * Delete all inputs
-     */
-
-  deleteInputs (index, value) {
-    this.setState({ stringInputs: [] })
+  * Deletes the all inputs
+  */
+  deleteInputs () {
+    this.setState({ stringInputs: [] }, () => this.updateMultiString())
   }
 
   /**
-     * Clear all inputs
-     */
-
-  clearInputs (index, value) {
+  * Clear all inputs
+  */
+  clearInputs () {
     const clearedInputs = this.state.stringInputs.map(() => '')
-    this.setState({ stringInputs: clearedInputs })
+    this.setState({ stringInputs: clearedInputs }) // TODO: delete array in parent?
   }
 
   render () {
     let inputs = this.state.stringInputs.map((input, index) => {
-      return <div className='form-inline' key={index}>
-        <StringInput name={index} value={input} update={this.updateRow} />
-        <Button onClick={() => this.deleteRow(input)}> Delete </Button>
+      return <div className='form-inline mb-3' key={index}>
+        <StringInput name={`${index}`} value={input} update={this.updateRow} />
       </div>
     })
+
     return (
       <div>
         {inputs}
-        <Button onClick={this.addRow}> Add </Button>
-        <Button onClick={this.clearInputs}> Clear inputs </Button>
-        <Button onClick={this.deleteInputs}> Delete inputs </Button>
+        <div className='d-flex justify-content-between'>
+          <Button className='btn-success' onClick={this.addRow}> Add</Button>
+          <Button className='btn-warning' disabled={!this.state.stringInputs.length} onClick={this.clearInputs}> Clear inputs </Button>
+          <Button className='btn-danger' disabled={!this.state.stringInputs.length} onClick={this.deleteLastInput}> Delete last input </Button>
+        </div>
       </div>
     )
   }

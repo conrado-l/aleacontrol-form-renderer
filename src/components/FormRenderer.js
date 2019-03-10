@@ -5,9 +5,9 @@ import StringInput from './StringInput'
 import EmailInput from './EmailInput'
 import RadioInput from './RadioInput'
 import PhoneInput from './PhoneInput'
+import MultiStringInput from './MultiStringInput'
 import Button from 'react-bootstrap/Button';
 import './FormRenderer.css'
-import MultiStringInput from './MultiStringInput'
 
 class FormRenderer extends Component {
     constructor(props) {
@@ -187,9 +187,10 @@ class FormRenderer extends Component {
         })
 
         return (
-            <form className='form-renderer rounded p-3 col-md-6 col-sm-6 col-xs-12 col-xl-3'>
+            <form className='form-renderer rounded p-3 my-5 col-md-6 col-sm-6 col-xs-12 col-xl-3'>
                 {inputs}
-                <div>
+                <hr />
+                <div className='d-flex justify-content-around'>
                     <Button className='m-*-auto' onClick={this.sendForm}> Send Form</Button>
                     <Button className='m-*-auto' onClick={this.changeSampleData}> Change Data</Button>
                 </div>

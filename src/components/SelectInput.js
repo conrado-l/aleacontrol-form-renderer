@@ -9,7 +9,7 @@ class SelectInput extends Component {
     })
 
     return (
-      <select className={`form-control col-xs-12 col-md-${this.props.col}`} onChange={(e) => this.props.update(this.props.name, e.target.value)}>
+      <select className={`form-control col-xs-12 col-${this.props.col}`} onChange={(e) => this.props.update(this.props.name, e.target.value)}>
         {options}
       </select>
     )
