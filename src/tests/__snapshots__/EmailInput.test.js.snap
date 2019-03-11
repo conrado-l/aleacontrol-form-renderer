@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EmailInput should render correctly email component 1`] = `
+<input
+  className="form-control col-12 col-sm-undefined "
+  onChange={[Function]}
+  type="email"
+/>
+`;

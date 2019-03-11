@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-class InputContainer extends Component {
+class FormGroup extends Component {
   render () {
     return (
       <div className='form-group'>
@@ -13,9 +13,9 @@ class InputContainer extends Component {
   }
 }
 
-InputContainer.propTypes = {
+FormGroup.propTypes = {
   label: PropTypes.string,
   for: PropTypes.string,
   children: PropTypes.object
 }
-export default InputContainer
+export default FormGroup

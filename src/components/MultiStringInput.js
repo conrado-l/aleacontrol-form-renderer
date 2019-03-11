@@ -74,7 +74,7 @@ class MultiStringInput extends Component {
    */
   renderInputs () {
     return this.state.stringInputs.map((input, index) => {
-      return <div className='form-inline mb-3' key={index}>
+      return <div className='mb-3' key={index}>
         <StringInput name={`${index}`} value={input} update={this.updateRow} />
       </div>
     })

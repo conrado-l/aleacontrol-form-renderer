@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SelectInput should render correctly select component 1`] = `
+<select
+  className="form-control col-xs-12 col-undefined"
+  onChange={[Function]}
+>
+  <option
+    value="asia"
+  >
+     
+    Asia
+  </option>
+  <option
+    value="europe"
+  >
+     
+    Europe
+  </option>
+</select>
+`;

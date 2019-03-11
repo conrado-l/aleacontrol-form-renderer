@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import InputContainer from './InputContainer'
+import FormGroup from './FormGroup'
 import SelectInput from './SelectInput'
 import StringInput from './StringInput'
 import EmailInput from './EmailInput'
@@ -7,7 +7,7 @@ import RadioInput from './RadioInput'
 import PhoneInput from './PhoneInput'
 import MultiStringInput from './MultiStringInput'
 import Button from 'react-bootstrap/Button';
-import './FormRenderer.css'
+import './FormRenderer.scss'
 
 class FormRenderer extends Component {
     constructor(props) {
@@ -146,7 +146,7 @@ class FormRenderer extends Component {
         }
     ]
 
-    // Mapping: JSON component name attributes -> component imports
+    // Mapping: JSON component name attribute -> component imports
     components = {
         'string': StringInput,
         'email': EmailInput,
@@ -185,9 +185,9 @@ class FormRenderer extends Component {
 
             const DynamicInputTag = this.components[input.component]
 
-            return <InputContainer key={input.name} label={input.label}>
+            return <FormGroup key={input.name} label={input.label}>
                 <DynamicInputTag {...input} update={this.updateFormInput}/>
-            </InputContainer>
+            </FormGroup>
         })
     }
 

@@ -5,7 +5,7 @@ class EmailInput extends Component {
   render () {
     return (
       <input type='email'
-        className={`form-control col-xs-12 col-md-${this.props.col}`}
+        className={`form-control col-12 col-sm-${this.props.col} `}
         name={this.props.name}
         value={this.props.value}
         onChange={(e) => this.props.update(this.props.name, e.target.value)} />

@@ -29,11 +29,10 @@ class PhoneInput extends Component {
   render () {
     return (
       <div className='row'>
-        <div className={`col-xs-12 col-${this.props.col}`}>
-          <SelectInput name='ext' value={this.state.ext} options={this.props.options}
-            update={this.updatePhone} />
+        <div className={`col-12 col-sm-${this.props.col}`}>
+          <SelectInput name='ext' value={this.state.ext} options={this.props.options} update={this.updatePhone} />
         </div>
-        <div className={`col-xs-12 col-${this.props.col}`}>
+        <div className={`col-12 col-sm-${this.props.col}`}>
           <StringInput name='phone' value={this.state.phone} update={this.updatePhone} />
         </div>
       </div>
