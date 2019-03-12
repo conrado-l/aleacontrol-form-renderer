@@ -35,7 +35,7 @@ class PhoneInput extends Component {
           <SelectInput name='ext' value={this.state.ext} options={this.props.options} update={this.updatePhone} />
         </Col>
         <Col xs={12} sm={this.props.col}>
-          <StringInput name="phone" value={this.state.phone} update={this.updatePhone} />
+          <StringInput name=phone value={this.state.phone} update={this.updatePhone} />
         </Col>
       </Row>
     )
