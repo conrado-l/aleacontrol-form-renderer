@@ -8,7 +8,6 @@ class FormGroup extends Component {
         <label htmlFor={this.props.for}>{this.props.label}</label>
         <div>{this.props.children}</div>
       </div>
-
     )
   }
 }

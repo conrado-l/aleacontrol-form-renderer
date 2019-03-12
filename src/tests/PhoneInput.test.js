@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow, mount } from 'enzyme'
+import { shallow } from 'enzyme'
 import PhoneInput from '../components/PhoneInput'
 import SelectInput from '../components/SelectInput'
 import StringInput from '../components/StringInput'
@@ -11,11 +11,11 @@ describe('PhoneInput', () => {
     { value: '54', description: 'Argentina' }
   ]
 
-  it('should render correctly select component', () => {
-    const PhoneInputComponent = renderer
-      .create(<PhoneInput options={extOptions} />)
+  it('should render correctly phone component', () => {
+    const SelectInputComponent = renderer
+      .create(<SelectInput value={{ phone: '123456', ext: '387' }} options={extOptions} />)
       .toJSON()
-    expect(PhoneInputComponent).toMatchSnapshot()
+    expect(SelectInputComponent).toMatchSnapshot()
   })
 
   it('should render the ext select', () => {
@@ -42,7 +42,8 @@ describe('PhoneInput', () => {
 
   it('should emit the local state to the parent through the update callback when the phone/ext is updated', () => {
     const updateFn = jest.fn()
-    const PhoneInputComponent = shallow(<PhoneInput value={{ phone: '123456', ext: '387' }} options={extOptions} update={updateFn} />)
+    const PhoneInputComponent = shallow(<PhoneInput value={{ phone: '123456', ext: '387' }} options={extOptions}
+      update={updateFn} />)
     const PhoneInputInstance = PhoneInputComponent.instance()
 
     PhoneInputInstance.updatePhone('ext', '54')

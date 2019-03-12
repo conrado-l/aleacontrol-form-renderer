@@ -9,7 +9,11 @@ class RadioInput extends Component {
   renderButtons () {
     return this.props.options.map((input) => {
       return <div key={input.value}>
-        <input type='radio' id={input.value} name={this.props.name} value={input.value} />
+        <input type='radio'
+          id={input.value}
+          name={this.props.name}
+          value={input.value}
+          defaultChecked={this.props.value === input.value} />
         <label htmlFor={input.value}> {input.description} </label>
       </div>
     })
@@ -27,6 +31,7 @@ class RadioInput extends Component {
 RadioInput.propTypes = {
   options: PropTypes.array,
   name: PropTypes.string,
+  value: PropTypes.string,
   update: PropTypes.func
 }
 export default RadioInput

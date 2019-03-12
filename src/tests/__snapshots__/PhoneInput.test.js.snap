@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PhoneInput should render correctly phone component 1`] = `
+<select
+  className="form-control col-xs-12 col-undefined"
+  onChange={[Function]}
+>
+  <option
+    value="387"
+  >
+     
+    Bosnia and Herzegovina
+  </option>
+  <option
+    value="54"
+  >
+     
+    Argentina
+  </option>
+</select>
+`;

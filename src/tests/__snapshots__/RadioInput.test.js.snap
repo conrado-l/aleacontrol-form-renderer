@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RadioInput should render correctly radio component 1`] = `
+<div
+  onChange={[Function]}
+>
+  <div>
+    <input
+      defaultChecked={true}
+      id="male"
+      name="gender"
+      type="radio"
+      value="male"
+    />
+    <label
+      htmlFor="male"
+    >
+       
+      Male
+       
+    </label>
+  </div>
+  <div>
+    <input
+      defaultChecked={false}
+      id="female"
+      name="gender"
+      type="radio"
+      value="female"
+    />
+    <label
+      htmlFor="female"
+    >
+       
+      Female
+       
+    </label>
+  </div>
+</div>
+`;
