@@ -2,6 +2,7 @@
 
 exports[`RadioInput should render correctly radio component 1`] = `
 <div
+  className="radio-input-container"
   onChange={[Function]}
 >
   <div>

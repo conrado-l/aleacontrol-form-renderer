@@ -1,0 +1,13 @@
+@import "mixins";
+
+.radio-input-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+@include mobile() {
+  .radio-input-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}

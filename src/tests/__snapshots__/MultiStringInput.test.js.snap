@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MultiStringInput should render correctly multistring component 1`] = `
+<div>
+  <div
+    className="mb-3"
+  >
+    <input
+      className="form-control col-xs-12 col-md-undefined"
+      name="0"
+      onChange={[Function]}
+      type="text"
+      value="Running"
+    />
+  </div>
+  <div
+    className="mb-3"
+  >
+    <input
+      className="form-control col-xs-12 col-md-undefined"
+      name="1"
+      onChange={[Function]}
+      type="text"
+      value="Play the piano"
+    />
+  </div>
+  <div
+    className="mb-3"
+  >
+    <input
+      className="form-control col-xs-12 col-md-undefined"
+      name="2"
+      onChange={[Function]}
+      type="text"
+      value="Coding"
+    />
+  </div>
+  <div
+    className="d-flex justify-content-between"
+  >
+    <button
+      className="btn btn-outline-success"
+      disabled={false}
+      id="add"
+      onClick={[Function]}
+      type="button"
+    >
+       Add
+    </button>
+    <button
+      className="btn btn-outline-warning"
+      disabled={false}
+      id="clear"
+      onClick={[Function]}
+      type="button"
+    >
+       Clear inputs 
+    </button>
+    <button
+      className="btn btn-outline-danger"
+      disabled={false}
+      id="delete"
+      onClick={[Function]}
+      type="button"
+    >
+       Delete last input 
+    </button>
+  </div>
+</div>
+`;

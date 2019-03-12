@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import './RadioInput.scss'
 
 class RadioInput extends Component {
   /**
@@ -21,7 +22,7 @@ class RadioInput extends Component {
 
   render () {
     return (
-      <div onChange={(e) => this.props.update(this.props.name, e.target.value)}>
+      <div className='radio-input-container' onChange={(e) => this.props.update(this.props.name, e.target.value)}>
         {this.renderButtons()}
       </div>
     )

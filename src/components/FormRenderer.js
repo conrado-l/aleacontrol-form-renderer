@@ -8,6 +8,9 @@ import PhoneInput from './PhoneInput'
 import MultiStringInput from './MultiStringInput'
 import Button from 'react-bootstrap/Button';
 import './FormRenderer.scss'
+import Form from 'react-bootstrap/Form'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 class FormRenderer extends Component {
     constructor(props) {
@@ -171,7 +174,7 @@ class FormRenderer extends Component {
 
     changeSampleData() {
         this.setState({
-                form: this.sample2
+                form: sample2
             }
         )
     }
@@ -194,14 +197,18 @@ class FormRenderer extends Component {
     render() {
 
         return (
-            <form className='form-renderer rounded p-3 my-5 col-md-6 col-sm-6 col-xs-12 col-xl-3'>
-                {this.renderInputs()}
-                <hr/>
-                <div className='d-flex justify-content-around'>
-                    <Button variant='outline-info' onClick={this.changeSampleData}> Change Data</Button>
-                    <Button variant='outline-primary' onClick={this.sendForm}> Send Form</Button>
-                </div>
-            </form>
+            <Form className='form-renderer rounded p-3 my-sm-5 col-md-6 col-sm-6 col-xs-12 col-xl-3'>
+                {/*<Row>*/}
+                    {/*<Col md={6} sm={6} xs={6} xl={3}>*/}
+                        {this.renderInputs()}
+                        <hr/>
+                        <div className='d-flex justify-content-around'>
+                            <Button variant='outline-info' onClick={this.changeSampleData}> Change Data</Button>
+                            <Button variant='outline-primary' onClick={this.sendForm}> Send Form</Button>
+                        </div>
+                    {/*</Col>*/}
+                {/*</Row>*/}
+            </Form>
         )
     }
 }

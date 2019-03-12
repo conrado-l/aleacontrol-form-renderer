@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import SelectInput from './SelectInput'
 import StringInput from './StringInput'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
 
 class PhoneInput extends Component {
   constructor (props) {
@@ -28,20 +30,19 @@ class PhoneInput extends Component {
 
   render () {
     return (
-      <div className='row'>
-        <div className={`col-12 col-sm-${this.props.col}`}>
+      <Row>
+        <Col xs={12} sm={this.props.col}>
           <SelectInput name='ext' value={this.state.ext} options={this.props.options} update={this.updatePhone} />
-        </div>
-        <div className={`col-12 col-sm-${this.props.col}`}>
+        </Col>
+        <Col xs={12} sm={this.props.col}>
           <StringInput name='phone' value={this.state.phone} update={this.updatePhone} />
-        </div>
-      </div>
+        </Col>
+      </Row>
     )
   }
 }
 
 PhoneInput.propTypes = {
-  name: PropTypes.string,
   value: PropTypes.object,
   options: PropTypes.array,
   col: PropTypes.number,

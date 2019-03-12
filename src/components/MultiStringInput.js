@@ -11,10 +11,9 @@ class MultiStringInput extends Component {
       stringInputs: props.value
     }
 
-    this.addRow = this.addRow.bind(this)
-    this.updateRow = this.updateRow.bind(this)
+    this.addInput = this.addInput.bind(this)
+    this.updateInput = this.updateInput.bind(this)
     this.deleteLastInput = this.deleteLastInput.bind(this)
-    this.deleteInputs = this.deleteInputs.bind(this)
     this.clearInputs = this.clearInputs.bind(this)
   }
 
@@ -23,18 +22,16 @@ class MultiStringInput extends Component {
   }
 
   /**
-  * Adds a new input row
+  * Adds a new input
   */
-  addRow () {
+  addInput () {
     this.setState(prevState => ({
       stringInputs: [...prevState.stringInputs, '']
     }), () => this.updateMultiString())
   }
 
   /**
-   * Deletes the last row
-   * According to the JSON sample, there is no ID in every input, so I can't delete by ID individually adding a
-   * delete button for every row
+   * Deletes the last input
    */
   deleteLastInput () {
     let deletedLastInputState = [...this.state.stringInputs]
@@ -45,19 +42,12 @@ class MultiStringInput extends Component {
   /**
   * Updates an input value
   */
-  updateRow (index, value) {
+  updateInput (index, value) {
     let inputs = this.state.stringInputs
     inputs[index] = value
     this.setState({
       stringInputs: inputs
     }, () => this.updateMultiString())
-  }
-
-  /**
-  * Deletes the all inputs
-  */
-  deleteInputs () {
-    this.setState({ stringInputs: [] }, () => this.updateMultiString())
   }
 
   /**
@@ -75,7 +65,7 @@ class MultiStringInput extends Component {
   renderInputs () {
     return this.state.stringInputs.map((input, index) => {
       return <div className='mb-3' key={index}>
-        <StringInput name={`${index}`} value={input} update={this.updateRow} />
+        <StringInput name={`${index}`} value={input} col={this.props.col} update={this.updateInput} />
       </div>
     })
   }
@@ -85,9 +75,9 @@ class MultiStringInput extends Component {
       <div>
         {this.renderInputs()}
         <div className='d-flex justify-content-between'>
-          <Button variant='outline-success' onClick={this.addRow}> Add</Button>
-          <Button variant='outline-warning' disabled={!this.state.stringInputs.length} onClick={this.clearInputs}> Clear inputs </Button>
-          <Button variant='outline-danger' disabled={!this.state.stringInputs.length} onClick={this.deleteLastInput}> Delete last input </Button>
+          <Button id='add' variant='outline-success' onClick={this.addInput}> Add</Button>
+          <Button id='clear' variant='outline-warning' disabled={!this.state.stringInputs.length} onClick={this.clearInputs}> Clear inputs </Button>
+          <Button id='delete' variant='outline-danger' disabled={!this.state.stringInputs.length} onClick={this.deleteLastInput}> Delete last input </Button>
         </div>
       </div>
     )

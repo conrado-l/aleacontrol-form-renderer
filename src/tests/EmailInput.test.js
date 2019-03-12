@@ -12,6 +12,7 @@ describe('EmailInput', () => {
     expect(EmailInputComponent).toMatchSnapshot()
   })
 
+  // TODO: make the test for setted values from props, initial value
   it('should call the update callback function on input', () => {
     const EmailInputComponent = shallow(<EmailInput update={inputFn} />)
 
