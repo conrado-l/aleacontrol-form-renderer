@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GenericTextInput should render correctly generic text input component 1`] = `
+<div
+  className="row"
+>
+  <div
+    className="col-12"
+  >
+    <input
+      className="form-control"
+      name="email"
+      onChange={[Function]}
+      type="email"
+      value="paul@gmail.com"
+    />
+  </div>
+</div>
+`;

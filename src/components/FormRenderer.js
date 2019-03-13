@@ -111,7 +111,7 @@ class FormRenderer extends Component {
     render () {
       return (
         <Row>
-          <Col xs={12} md={8} xl={6}>
+          <Col className='mx-auto' xs={12} md={8} xl={6}>
             <Form className='form-renderer p-3 my-3'>
               {this.renderInputs()}
               <hr />

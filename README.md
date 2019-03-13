@@ -6,8 +6,9 @@
 
 
 ## Installation
+In the project directory:
+### `npm install` 
 
-### `npm install` in the project directory
 ## Scripts
 ### `npm start`
 
@@ -42,6 +43,9 @@ Check and fix linting errors
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-#### Husky
+### Husky
 Husky has a Git hook for running the tests and eslinting before commiting
- for avoiding bad commits (testing)
+ for avoiding bad commits.
+ Check `package.json` for the Husky settings
+ 
+ This feature is under testing and might not work in every IDE or environment.
