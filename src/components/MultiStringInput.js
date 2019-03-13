@@ -3,6 +3,9 @@ import PropTypes from 'prop-types'
 import StringInput from './StringInput'
 import Button from 'react-bootstrap/Button'
 
+/**
+ * Multiple and different string inputs with the ability to add or delete them individually
+ */
 class MultiStringInput extends Component {
   constructor (props) {
     super(props)
@@ -14,11 +17,13 @@ class MultiStringInput extends Component {
     this.addInput = this.addInput.bind(this)
     this.updateInput = this.updateInput.bind(this)
     this.deleteLastInput = this.deleteLastInput.bind(this)
-    this.clearInputs = this.clearInputs.bind(this)
   }
 
+  /**
+   * Send the inputs to the parent and filter the empty inputs
+   */
   updateMultiString () {
-    this.props.update(this.props.name, this.state.stringInputs)
+    this.props.update(this.props.name, this.state.stringInputs.filter((input) => input !== ''))
   }
 
   /**
@@ -51,16 +56,7 @@ class MultiStringInput extends Component {
   }
 
   /**
-  * Clear all inputs
-  */
-  clearInputs () {
-    const clearedInputs = this.state.stringInputs.map(() => '')
-    this.setState({ stringInputs: clearedInputs }) // TODO: delete array in parent?
-  }
-
-  /**
    * Renders the inputs
-   * @returns {*}
    */
   renderInputs () {
     return this.state.stringInputs.map((input, index) => {
@@ -74,9 +70,8 @@ class MultiStringInput extends Component {
     return (
       <div>
         {this.renderInputs()}
-        <div className='d-flex justify-content-between'>
-          <Button id='add' variant='outline-success' onClick={this.addInput}> Add</Button>
-          <Button id='clear' variant='outline-warning' disabled={!this.state.stringInputs.length} onClick={this.clearInputs}> Clear inputs </Button>
+        <div className='d-flex justify-content-around'>
+          <Button id='add' variant='outline-success' onClick={this.addInput}> Add input</Button>
           <Button id='delete' variant='outline-danger' disabled={!this.state.stringInputs.length} onClick={this.deleteLastInput}> Delete last input </Button>
         </div>
       </div>

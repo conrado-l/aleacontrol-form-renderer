@@ -1,0 +1,61 @@
+[
+  {
+    "label": "Full name",
+    "name": "full_name",
+    "value": "Paul Mendez",
+    "component": "string",
+    "col": 12
+  },
+  {
+    "label": "Address",
+    "name": "address",
+    "value": null,
+    "component": "string",
+    "col": 8
+  },
+  {
+    "label": "Favorite brands",
+    "name": "favorite_brands",
+    "value": ["ASUS", "MSi", "nVidia", "Intel", "AMD"],
+    "component": "multistring",
+    "col": 6
+  },
+  {
+    "label": "Preferred OS",
+    "name": "preferred_os",
+    "value": "linux",
+    "options": [
+      {
+        "description": "Linux",
+        "value": "linux"
+      },
+      {
+        "description": "Windows",
+        "value": "windows"
+      }
+    ],
+    "component": "radio",
+    "col": 6
+  },
+  {
+    "label": "Current job area",
+    "name": "current_job",
+    "value": "technology",
+    "component": "select",
+    "col": 6,
+    "options": [
+      {
+        "description": "Human Resources",
+        "value": "human_resources"
+      },
+      {
+        "description": "Technology",
+        "value": "technology"
+      },
+      {
+        "description": "Business Management",
+        "value": "business_management"
+      }
+    ]
+  }
+]

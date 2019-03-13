@@ -5,38 +5,62 @@ exports[`MultiStringInput should render correctly multistring component 1`] = `
   <div
     className="mb-3"
   >
-    <input
-      className="form-control col-xs-12 col-md-undefined"
-      name="0"
-      onChange={[Function]}
-      type="text"
-      value="Running"
-    />
+    <div
+      className="row"
+    >
+      <div
+        className="col-12"
+      >
+        <input
+          className="form-control"
+          name="0"
+          onChange={[Function]}
+          type="text"
+          value="Running"
+        />
+      </div>
+    </div>
   </div>
   <div
     className="mb-3"
   >
-    <input
-      className="form-control col-xs-12 col-md-undefined"
-      name="1"
-      onChange={[Function]}
-      type="text"
-      value="Play the piano"
-    />
+    <div
+      className="row"
+    >
+      <div
+        className="col-12"
+      >
+        <input
+          className="form-control"
+          name="1"
+          onChange={[Function]}
+          type="text"
+          value="Play the piano"
+        />
+      </div>
+    </div>
   </div>
   <div
     className="mb-3"
   >
-    <input
-      className="form-control col-xs-12 col-md-undefined"
-      name="2"
-      onChange={[Function]}
-      type="text"
-      value="Coding"
-    />
+    <div
+      className="row"
+    >
+      <div
+        className="col-12"
+      >
+        <input
+          className="form-control"
+          name="2"
+          onChange={[Function]}
+          type="text"
+          value="Coding"
+        />
+      </div>
+    </div>
   </div>
   <div
-    className="d-flex justify-content-between"
+    className="d-flex justify-content-around"
   >
     <button
       className="btn btn-outline-success"
@@ -45,16 +69,7 @@ exports[`MultiStringInput should render correctly multistring component 1`] = `
       onClick={[Function]}
       type="button"
     >
-       Add
-    </button>
-    <button
-      className="btn btn-outline-warning"
-      disabled={false}
-      id="clear"
-      onClick={[Function]}
-      type="button"
-    >
-       Clear inputs 
+       Add input
     </button>
     <button
       className="btn btn-outline-danger"

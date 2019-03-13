@@ -5,6 +5,9 @@ import StringInput from './StringInput'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
+/**
+ * Select input for ext and a string input for the phone number
+ */
 class PhoneInput extends Component {
   constructor (props) {
     super(props)
@@ -18,9 +21,9 @@ class PhoneInput extends Component {
   }
 
   /**
-   * Updates state, wait for the state update and send the new phone object to the parent
-   * @param inputKey
-   * @param inputValue
+   * Updates state, waits for the state update and sends the new phone object to the parent
+   * @param {string} inputKey
+   * @param {string} inputValue
    */
   updatePhone (inputKey, inputValue) {
     this.setState({ [inputKey]: inputValue }, () => {
@@ -35,7 +38,7 @@ class PhoneInput extends Component {
           <SelectInput name='ext' value={this.state.ext} options={this.props.options} update={this.updatePhone} />
         </Col>
         <Col xs={12} sm={this.props.col}>
-          <StringInput name=phone value={this.state.phone} update={this.updatePhone} />
+          <StringInput name='phone' value={this.state.phone} update={this.updatePhone} />
         </Col>
       </Row>
     )

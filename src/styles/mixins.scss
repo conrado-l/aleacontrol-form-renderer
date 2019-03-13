@@ -1,0 +1,10 @@
+@import "variables";
+@mixin mobile() {
+  @media only screen and (max-width: 576px) {
+    @content;
+  }
+}
+
+@mixin box-shadow() {
+  box-shadow: $box-shadow-horizontal, $box-shadow-vertical;
+}

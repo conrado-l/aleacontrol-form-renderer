@@ -1,7 +1,14 @@
-## Available Scripts
+# Dynamic form generation based on a JSON file - Aleacontrol
 
-In the project directory, you can run:
+## Requirements
 
+* Node 10.15.2
+
+
+## Installation
+
+### `npm install` in the project directory
+## Scripts
 ### `npm start`
 
 Runs the app in the development mode.<br>
@@ -25,7 +32,16 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+### `npm run eslint`
+Check for linting errors
+
+### `npm run eslint:fix`
+Check and fix linting errors
+
 ### `npm run eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
+#### Husky
+Husky has a Git hook for running the tests and eslinting before commiting
+ for avoiding bad commits (testing)

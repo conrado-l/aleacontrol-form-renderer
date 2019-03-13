@@ -3,39 +3,54 @@
 exports[`RadioInput should render correctly radio component 1`] = `
 <div
   className="radio-input-container"
-  onChange={[Function]}
 >
   <div>
-    <input
-      defaultChecked={true}
-      id="male"
-      name="gender"
-      type="radio"
-      value="male"
-    />
-    <label
-      htmlFor="male"
+    <div
+      className="form-check form-check-inline"
     >
-       
-      Male
-       
-    </label>
+      <input
+        className="form-check-input"
+        defaultChecked={true}
+        disabled={false}
+        id="male"
+        name="gender"
+        onChange={[Function]}
+        type="radio"
+        value="male"
+      />
+      <label
+        className="form-check-label"
+        htmlFor="male"
+        title=""
+        type="checkbox"
+      >
+        Male
+      </label>
+    </div>
   </div>
   <div>
-    <input
-      defaultChecked={false}
-      id="female"
-      name="gender"
-      type="radio"
-      value="female"
-    />
-    <label
-      htmlFor="female"
+    <div
+      className="form-check form-check-inline"
     >
-       
-      Female
-       
-    </label>
+      <input
+        className="form-check-input"
+        defaultChecked={false}
+        disabled={false}
+        id="female"
+        name="gender"
+        onChange={[Function]}
+        type="radio"
+        value="female"
+      />
+      <label
+        className="form-check-label"
+        htmlFor="female"
+        title=""
+        type="checkbox"
+      >
+        Female
+      </label>
+    </div>
   </div>
 </div>
 `;

@@ -32,8 +32,7 @@
     "eject": "react-scripts eject",
     "test": "react-scripts test",
     "eslint": "./node_modules/.bin/eslint ./src",
-    "eslint:fix": "./node_modules/.bin/eslint ./src --fix",
-    "precommit": "npm run eslint && npm run test"
+    "eslint:fix": "./node_modules/.bin/eslint ./src --fix"
   },
   "husky": {
     "hooks": {

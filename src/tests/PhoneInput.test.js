@@ -6,31 +6,33 @@ import StringInput from '../components/StringInput'
 import renderer from 'react-test-renderer'
 
 describe('PhoneInput', () => {
-  const extOptions = [
-    { value: '387', description: 'Bosnia and Herzegovina' },
-    { value: '54', description: 'Argentina' }
-  ]
+  const mockupProps = {
+    value: { phone: '123456', ext: '387' },
+    extOptions: [
+      { value: '387', description: 'Bosnia and Herzegovina' },
+      { value: '54', description: 'Argentina' }]
+  }
 
   it('should render correctly phone component', () => {
     const SelectInputComponent = renderer
-      .create(<SelectInput value={{ phone: '123456', ext: '387' }} options={extOptions} />)
+      .create(<PhoneInput value={mockupProps.value} options={mockupProps.extOptions} />)
       .toJSON()
     expect(SelectInputComponent).toMatchSnapshot()
   })
 
   it('should render the ext select', () => {
-    const PhoneInputComponent = shallow(<PhoneInput value={{ phone: '123456', ext: '387' }} options={extOptions} />)
+    const PhoneInputComponent = shallow(<PhoneInput value={mockupProps.value} options={mockupProps.extOptions} />)
     expect(PhoneInputComponent.find(SelectInput)).toHaveLength(1)
   })
 
   it('should render the phone input', () => {
-    const PhoneInputComponent = shallow(<PhoneInput value={{ phone: '123456', ext: '387' }} options={extOptions} />)
+    const PhoneInputComponent = shallow(<PhoneInput value={mockupProps.value} options={mockupProps.extOptions} />)
     expect(PhoneInputComponent.find(StringInput)).toHaveLength(1)
   })
 
   it('should update the state when the updatePhone callback is executed', () => {
     const updateFn = jest.fn()
-    const PhoneInputComponent = shallow(<PhoneInput value={{ phone: '123456', ext: '387' }} options={extOptions} update={updateFn} />)
+    const PhoneInputComponent = shallow(<PhoneInput value={mockupProps.value} options={mockupProps.extOptions} update={updateFn} />)
     const PhoneInputInstance = PhoneInputComponent.instance()
 
     PhoneInputInstance.updatePhone('ext', '54')
@@ -42,7 +44,7 @@ describe('PhoneInput', () => {
 
   it('should emit the local state to the parent through the update callback when the phone/ext is updated', () => {
     const updateFn = jest.fn()
-    const PhoneInputComponent = shallow(<PhoneInput value={{ phone: '123456', ext: '387' }} options={extOptions}
+    const PhoneInputComponent = shallow(<PhoneInput value={mockupProps.value} options={mockupProps.extOptions}
       update={updateFn} />)
     const PhoneInputInstance = PhoneInputComponent.instance()
 

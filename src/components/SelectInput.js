@@ -1,10 +1,15 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import Row from 'react-bootstrap/Row'
+import Col from 'react-bootstrap/Col'
+import Form from 'react-bootstrap/Form'
 
+/**
+ * Select input with options
+ */
 class SelectInput extends Component {
   /**
    * Renders the select options
-   * @returns {any[]}
    */
   renderOptions () {
     return this.props.options.map((input) => {
@@ -14,9 +19,14 @@ class SelectInput extends Component {
 
   render () {
     return (
-      <select className={`form-control col-xs-12 col-${this.props.col}`} onChange={(e) => this.props.update(this.props.name, e.target.value)}>
-        {this.renderOptions()}
-      </select>
+      <Row>
+        <Col xs={12} sm={this.props.col}>
+          <Form.Control as='select' defaultValue={this.props.value}
+            onChange={(e) => this.props.update(this.props.name, e.target.value)}>
+            {this.renderOptions()}
+          </Form.Control>
+        </Col>
+      </Row>
     )
   }
 }
@@ -24,6 +34,7 @@ class SelectInput extends Component {
 SelectInput.propTypes = {
   options: PropTypes.array,
   name: PropTypes.string,
+  value: PropTypes.string,
   col: PropTypes.number,
   update: PropTypes.func
 }

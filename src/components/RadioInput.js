@@ -1,28 +1,34 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import './RadioInput.scss'
+import Form from 'react-bootstrap/Form'
+import '../styles/RadioInput.scss'
 
+/**
+ * Radio input with options
+ */
 class RadioInput extends Component {
   /**
    * Renders the radio buttons
-   * @returns {any[]}
    */
   renderButtons () {
     return this.props.options.map((input) => {
       return <div key={input.value}>
-        <input type='radio'
+        <Form.Check
+          inline
+          type='radio'
           id={input.value}
           name={this.props.name}
+          label={input.description}
           value={input.value}
+          onChange={() => this.props.update(this.props.name, input.value)}
           defaultChecked={this.props.value === input.value} />
-        <label htmlFor={input.value}> {input.description} </label>
       </div>
     })
   }
 
   render () {
     return (
-      <div className='radio-input-container' onChange={(e) => this.props.update(this.props.name, e.target.value)}>
+      <div className='radio-input-container'>
         {this.renderButtons()}
       </div>
     )

@@ -4,40 +4,42 @@ import RadioInput from '../components/RadioInput'
 import renderer from 'react-test-renderer'
 
 describe('RadioInput', () => {
-  const radioOptions = [
-    { value: 'male', description: 'Male' },
-    { value: 'female', description: 'Female' }
-  ]
+  const mockupProps = {
+    value: 'male',
+    name: 'gender',
+    options: [
+      { value: 'male', description: 'Male' },
+      { value: 'female', description: 'Female' }]
+  }
 
   it('should render correctly radio component', () => {
     const RadioInputComponent = renderer
-      .create(<RadioInput name='gender' value={radioOptions[0].value} options={radioOptions} />)
+      .create(<RadioInput name={mockupProps.name} value={mockupProps.value} options={mockupProps.options} />)
       .toJSON()
     expect(RadioInputComponent).toMatchSnapshot()
   })
 
   it('should render the radio options', () => {
-    const RadioInputComponent = mount(<RadioInput name='gender' value={radioOptions[0].value}
-      options={radioOptions} />)
+    const RadioInputComponent = mount(<RadioInput name={mockupProps.name} value={mockupProps.value}
+      options={mockupProps.options} />)
 
     expect(RadioInputComponent.containsMatchingElement(
-      <input type='radio' name={RadioInputComponent.props().name} id={radioOptions[0].value}
-        value={radioOptions[0].value} defaultChecked />)).toBeTruthy()
+      <input type='radio' name={mockupProps.options[0].name} value={mockupProps.options[0].value} />)).toBeTruthy()
 
     expect(RadioInputComponent.containsMatchingElement(
-      <label htmlFor={radioOptions[0].value}> {radioOptions[0].description} </label>)).toBeTruthy()
+      <label htmlFor={mockupProps.options[0].value}> {mockupProps.options[0].description} </label>)).toBeTruthy()
 
     expect(RadioInputComponent.containsMatchingElement(
-      <input type='radio' name={RadioInputComponent.props().name} id={radioOptions[1].value}
-        value={radioOptions[1].value} />)).toBeTruthy()
+      <input type='radio' name={RadioInputComponent.props().name} id={mockupProps.options[1].value}
+        value={mockupProps.options[1].value} />)).toBeTruthy()
 
     expect(RadioInputComponent.containsMatchingElement(
-      <label htmlFor={radioOptions[1].value}> {radioOptions[1].description} </label>)).toBeTruthy()
+      <label htmlFor={mockupProps.options[1].value}> {mockupProps.options[1].description} </label>)).toBeTruthy()
   })
 
   it('should call the update callback function with the proper values on change', () => {
     const changFn = jest.fn()
-    const RadioInputComponent = mount(<RadioInput name='gender' value={radioOptions[0].value} options={radioOptions}
+    const RadioInputComponent = mount(<RadioInput name={mockupProps.name} value={mockupProps.value} options={mockupProps.options}
       update={changFn} />)
 
     RadioInputComponent.find(`input#${RadioInputComponent.props().options[1].value}`).simulate('change', {
@@ -46,8 +48,6 @@ describe('RadioInput', () => {
       }
     })
 
-    expect(changFn).toHaveBeenCalled()
-
-    expect(changFn).toHaveBeenCalledWith(RadioInputComponent.props().name, RadioInputComponent.props().options[1].value)
+    expect(changFn).toHaveBeenCalledWith(mockupProps.name, RadioInputComponent.props().options[1].value)
   })
 })

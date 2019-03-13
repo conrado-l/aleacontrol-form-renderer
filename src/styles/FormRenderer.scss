@@ -1,0 +1,9 @@
+@import "variables";
+@import "mixins";
+
+.form-renderer {
+    padding: 10px 15px;
+    background-color: $box-background-color;
+    border-radius: $box-border-radius;
+    @include box-shadow;
+}

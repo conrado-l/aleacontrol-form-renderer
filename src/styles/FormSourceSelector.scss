@@ -1,0 +1,15 @@
+@import "variables";
+@import "mixins";
+
+.form-source-selector {
+  height: 60px;
+  width: 300px;
+  padding: 5px;
+  background-color: $box-background-color;
+  border-radius: $box-border-radius;
+  @include box-shadow;
+}
+
+.change-data-button {
+  height: 50px;
+}

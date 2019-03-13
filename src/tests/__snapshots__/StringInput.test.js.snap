@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EmailInput should render correctly email component 1`] = `
+exports[`StringInput should render correctly string component 1`] = `
 <div
   className="row"
 >
@@ -9,10 +9,10 @@ exports[`EmailInput should render correctly email component 1`] = `
   >
     <input
       className="form-control"
-      name="email"
+      name="first_name"
       onChange={[Function]}
-      type="email"
-      value="paul@gmail.com"
+      type="text"
+      value="Paul"
     />
   </div>
 </div>

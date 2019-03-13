@@ -1,0 +1,104 @@
+[
+  {
+    "label": "First name",
+    "name": "first_name",
+    "value": "Paul",
+    "component": "string",
+    "col": 6
+  },
+  {
+    "label": "Last name",
+    "name": "last_name",
+    "value": null,
+    "component": "string",
+    "col": 6
+  },
+  {
+    "label": "Email",
+    "name": "email",
+    "value": null,
+    "component": "email",
+    "col": 8
+  },
+  {
+    "label": "Gender",
+    "name": "gender",
+    "value": "male",
+    "options": [
+      {
+        "description": "Male",
+        "value": "male"
+      },
+      {
+        "description": "Female",
+        "value": "female"
+      }
+    ],
+    "component": "radio",
+    "col": 6
+  },
+  {
+    "label": "Continent",
+    "name": "continent",
+    "value": "america",
+    "options": [
+      {
+        "description": "Europe",
+        "value": "europe"
+      },
+      {
+        "description": "America",
+        "value": "america"
+      },
+      {
+        "description": "Asia",
+        "value": "asia"
+      },
+      {
+        "description": "Africa",
+        "value": "africa"
+      },
+      {
+        "description": "Australia",
+        "value": "australia"
+      },
+      {
+        "description": "Antartica",
+        "value": "antartica"
+      }
+    ],
+    "component": "select",
+    "col": 12
+  },
+  {
+    "label": "Phone number",
+    "name": "phone",
+    "value": {
+      "ext": "+387",
+      "phone": "123456"
+    },
+    "component": "phone",
+    "options": [
+      {
+        "value": "387",
+        "description": "Bosnia and Herzegovina"
+      },
+      {
+        "value": "54",
+        "description": "Argentina"
+      }
+    ],
+    "col": 6
+  },
+  {
+    "label": "Interests",
+    "name": "interests",
+    "value": [
+      "Coding",
+      "Playing piano",
+      "Product management"
+    ],
+    "component": "multistring",
+    "col": 6
+  }
+]
