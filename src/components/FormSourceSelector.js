@@ -11,12 +11,14 @@ import Col from 'react-bootstrap/Col'
 class FormSourceSelector extends Component {
   render () {
     return (
-      <Col className='mx-auto' xs={12} md={8} xl={6}>
-        <div className='form-source-selector w-100 mt-2 d-flex align-content-center justify-content-around'>
-          <Button variant='outline-info' className='change-data-button' onClick={this.props.changeFormSample}>
+      <Row>
+        <Col className='mx-auto' xs={12} md={8} xl={6}>
+          <div className='form-source-selector w-100 mt-2 d-flex align-content-center justify-content-around'>
+            <Button variant='outline-info' className='change-data-button' onClick={this.props.changeFormSample}>
                 Change Form Sample</Button>
-        </div>
-      </Col>
+          </div>
+        </Col>
+      </Row>
     )
   }
 }
