@@ -42,10 +42,19 @@ class EmailInput extends Component {
 }
 
 EmailInput.propTypes = {
+  /** Input's name */
+  name: PropTypes.string.isRequired,
+  /** Input's value */
   value: PropTypes.string,
-  name: PropTypes.string,
+  /** Bootstrap's column size */
   col: PropTypes.number,
-  update: PropTypes.func
+  /** Callback function when the input changes */
+  update: PropTypes.func.isRequired
+}
+
+EmailInput.defaultProps = {
+  value: '',
+  col: 6
 }
 
 export default EmailInput

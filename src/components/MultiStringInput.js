@@ -80,10 +80,19 @@ class MultiStringInput extends Component {
 }
 
 MultiStringInput.propTypes = {
-  name: PropTypes.string,
+  /** Input's name */
+  name: PropTypes.string.isRequired,
+  /** Values of the input */
   value: PropTypes.array,
+  /** Bootstrap's column size */
   col: PropTypes.number,
-  update: PropTypes.func
+  /** Callback function when some input changes */
+  update: PropTypes.func.isRequired
+}
+
+MultiStringInput.defaultProps = {
+  value: [],
+  col: 6
 }
 
 export default MultiStringInput

@@ -36,9 +36,18 @@ class RadioInput extends Component {
 }
 
 RadioInput.propTypes = {
-  options: PropTypes.array,
-  name: PropTypes.string,
+  /** Input's name */
+  name: PropTypes.string.isRequired,
+  /** Input's value */
   value: PropTypes.string,
-  update: PropTypes.func
+  /** Radio button options */
+  options: PropTypes.array.isRequired,
+  /** Callback function when the input changes */
+  update: PropTypes.func.isRequired
+}
+
+RadioInput.defaultProps = {
+  value: '',
+  col: 6
 }
 export default RadioInput

@@ -126,6 +126,7 @@ class FormRenderer extends Component {
     }
 }
 FormRenderer.propTypes = {
-  inputs: PropTypes.array
+  /** Inputs to be rendered */
+  inputs: PropTypes.array.isRequired
 }
 export default FormRenderer

@@ -5,7 +5,7 @@ exports[`EmailInput should render correctly email component 1`] = `
   className="row"
 >
   <div
-    className="col-12"
+    className="col-sm-6 col-12"
   >
     <input
       className="form-control"

@@ -19,9 +19,9 @@ class GenericTextInput extends Component {
   }
 
   /**
-     * Updates the input value and sends the value through the parent callback function
-     * @param {object} e Event
-     */
+ * Updates the input value and sends the value through the parent callback function
+ * @param {object} e Event
+ */
   handleChange (e) {
     const newValue = e.target.value
     this.setState({ value: newValue })
@@ -59,10 +59,20 @@ class GenericTextInput extends Component {
 }
 
 GenericTextInput.propTypes = {
-  component: PropTypes.string,
-  name: PropTypes.string,
+  /** Component name for computing the input type */
+  component: PropTypes.string.isRequired,
+  /** Name of the input */
+  name: PropTypes.string.isRequired,
+  /** Input's value */
   value: PropTypes.string,
+  /** Bootstrap's column size */
   col: PropTypes.number,
-  update: PropTypes.func
+  /** Callback function when the input changes */
+  update: PropTypes.func.isRequired
+}
+
+GenericTextInput.defaultProps = {
+  value: '',
+  col: 6
 }
 export default GenericTextInput

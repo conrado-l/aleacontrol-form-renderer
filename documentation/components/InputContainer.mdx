@@ -1,0 +1,21 @@
+---
+name: InputContainer
+---
+
+import { Playground, PropsTable } from 'docz'
+import InputContainer from '../../src/components/InputContainer.js'
+import StringInput from '../../src/components/StringInput.js'
+
+# InputContainer
+
+<PropsTable of={InputContainer} />
+
+## Description
+Wrapper containing input/s and the associated label
+## Demo and usage
+
+<Playground>
+    <InputContainer label='First name'>
+        <StringInput name='first_name' value='Paul' col={4} update={(e) => e} />
+    </InputContainer>
+</Playground>

@@ -1,0 +1,18 @@
+---
+name: MultiStringInput
+---
+
+import { Playground, PropsTable } from 'docz'
+import MultiStringInput from '../../src/components/MultiStringInput.js'
+
+# MultiStringInput
+
+<PropsTable of={MultiStringInput} />
+
+## Description
+Multiple string inputs with the ability to add and remove them individually
+## Demo and usage
+
+<Playground>
+    <MultiStringInput value={['MSi', 'Intel', 'AMD']} name='brands' col={4} update={(e) => e}/>
+</Playground>

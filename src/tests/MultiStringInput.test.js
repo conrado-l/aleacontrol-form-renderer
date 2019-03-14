@@ -11,14 +11,17 @@ describe('MultiStringInput', () => {
   }
 
   it('should render correctly multistring component', () => {
+    const inputFn = jest.fn()
     const MultiStringInputComponent = renderer
-      .create(<MultiStringInput name={mockupProps.name} value={mockupProps.value} />)
+      .create(<MultiStringInput name={mockupProps.name} value={mockupProps.value} update={inputFn} />)
       .toJSON()
     expect(MultiStringInputComponent).toMatchSnapshot()
   })
 
   it('should render N string inputs with the proper value', () => {
-    const MultiStringInputComponent = mount(<MultiStringInput name={mockupProps.name} value={mockupProps.value} />)
+    const inputFn = jest.fn()
+    const MultiStringInputComponent = mount(<MultiStringInput name={mockupProps.name} value={mockupProps.value}
+      update={inputFn} />)
     expect(MultiStringInputComponent.find(StringInput)).toHaveLength(mockupProps.value.length)
 
     const texts = MultiStringInputComponent.find('input').map(node => node.instance().value)
@@ -26,8 +29,9 @@ describe('MultiStringInput', () => {
   })
 
   it('should update the stringInputs state when the inputs update', () => {
-    const updateFn = jest.fn()
-    const MultiStringInputComponent = mount(<MultiStringInput name={mockupProps.name} value={mockupProps.value} update={updateFn} />)
+    const inputFn = jest.fn()
+    const MultiStringInputComponent = mount(<MultiStringInput name={mockupProps.name} value={mockupProps.value}
+      update={inputFn} />)
 
     MultiStringInputComponent.find('input').map((input, index) => {
       input.simulate('change', {
@@ -41,18 +45,20 @@ describe('MultiStringInput', () => {
   })
 
   it('should emit the local state to the parent through the update callback', () => {
-    const updateFn = jest.fn()
-    const MultiStringInputComponent = shallow(<MultiStringInput name={mockupProps.name} value={mockupProps.value} update={updateFn} />)
+    const inputFn = jest.fn()
+    const MultiStringInputComponent = shallow(<MultiStringInput name={mockupProps.name} value={mockupProps.value}
+      update={inputFn} />)
     const MultiStringInputInstance = MultiStringInputComponent.instance()
 
     MultiStringInputInstance.updateMultiString(mockupProps.name, mockupProps.value)
 
-    expect(updateFn).toHaveBeenCalledWith(mockupProps.name, mockupProps.value)
+    expect(inputFn).toHaveBeenCalledWith(mockupProps.name, mockupProps.value)
   })
 
   it('should delete the last input and update the state', () => {
-    const updateFn = jest.fn()
-    const MultiStringInputComponent = mount(<MultiStringInput name={mockupProps.name} value={mockupProps.value} update={updateFn} />)
+    const inputFn = jest.fn()
+    const MultiStringInputComponent = mount(<MultiStringInput name={mockupProps.name} value={mockupProps.value}
+      update={inputFn} />)
     const mockUpdatedInputs = mockupProps.value.slice(0, -1)
 
     MultiStringInputComponent.find('button#delete').simulate('click')
@@ -62,8 +68,9 @@ describe('MultiStringInput', () => {
   })
 
   it('should add a new empty input and update the state', () => {
-    const updateFn = jest.fn()
-    const MultiStringInputComponent = mount(<MultiStringInput name={mockupProps.name} value={mockupProps.value} update={updateFn} />)
+    const inputFn = jest.fn()
+    const MultiStringInputComponent = mount(<MultiStringInput name={mockupProps.name} value={mockupProps.value}
+      update={inputFn} />)
     const mockUpdatedInputs = [...mockupProps.value, '']
 
     MultiStringInputComponent.find('button#add').simulate('click')

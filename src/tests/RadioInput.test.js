@@ -13,15 +13,17 @@ describe('RadioInput', () => {
   }
 
   it('should render correctly radio component', () => {
+    const inputFn = jest.fn()
     const RadioInputComponent = renderer
-      .create(<RadioInput name={mockupProps.name} value={mockupProps.value} options={mockupProps.options} />)
+      .create(<RadioInput name={mockupProps.name} value={mockupProps.value} options={mockupProps.options} update={inputFn} />)
       .toJSON()
     expect(RadioInputComponent).toMatchSnapshot()
   })
 
   it('should render the radio options', () => {
+    const inputFn = jest.fn()
     const RadioInputComponent = mount(<RadioInput name={mockupProps.name} value={mockupProps.value}
-      options={mockupProps.options} />)
+      options={mockupProps.options} update={inputFn} />)
 
     expect(RadioInputComponent.containsMatchingElement(
       <input type='radio' name={mockupProps.options[0].name} value={mockupProps.options[0].value} />)).toBeTruthy()
@@ -38,9 +40,9 @@ describe('RadioInput', () => {
   })
 
   it('should call the update callback function with the proper values on change', () => {
-    const changFn = jest.fn()
+    const inputFn = jest.fn()
     const RadioInputComponent = mount(<RadioInput name={mockupProps.name} value={mockupProps.value} options={mockupProps.options}
-      update={changFn} />)
+      update={inputFn} />)
 
     RadioInputComponent.find(`input#${RadioInputComponent.props().options[1].value}`).simulate('change', {
       target: {
@@ -48,6 +50,6 @@ describe('RadioInput', () => {
       }
     })
 
-    expect(changFn).toHaveBeenCalledWith(mockupProps.name, RadioInputComponent.props().options[1].value)
+    expect(inputFn).toHaveBeenCalledWith(mockupProps.name, RadioInputComponent.props().options[1].value)
   })
 })

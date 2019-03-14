@@ -1,0 +1,22 @@
+---
+name: GenericTextInput
+---
+
+import { Playground, PropsTable } from 'docz'
+import GenericTextInput from '../../src/components/GenericTextInput.js'
+
+# GenericTextInput
+
+<PropsTable of={GenericTextInput} />
+
+## Description
+An input that can be either plain text or email depending on the component prop
+## Demo and usage
+
+<Playground>
+    <GenericTextInput component='string' name='text-input' value='Hello' col={6} update={(e) => e}/>
+</Playground>
+
+<Playground>
+    <GenericTextInput component='email' name='email-input' value='info@aleacontrol.com' col={6} update={(e) => e}/>
+</Playground>

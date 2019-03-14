@@ -1,0 +1,18 @@
+---
+name: SelectInput
+---
+
+import { Playground, PropsTable } from 'docz'
+import SelectInput from '../../src/components/SelectInput.js'
+
+# SelectInput
+
+<PropsTable of={SelectInput} />
+
+## Description
+A radio input with options
+## Demo and usage
+
+<Playground>
+    <SelectInput value='male' name='gender' options={[{value: 'male', description: 'Male'}, {value: 'female', description: 'Female'}]} col={4} update={(e) => e}/>
+</Playground>

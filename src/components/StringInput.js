@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col'
 import Form from 'react-bootstrap/Form'
 
 /**
- * Regular text type input
+ * Simple text type input
  */
 class StringInput extends Component {
   constructor (props) {
@@ -43,10 +43,19 @@ class StringInput extends Component {
 }
 
 StringInput.propTypes = {
+  /** Input's name */
+  name: PropTypes.string.isRequired,
+  /** Input's value */
   value: PropTypes.string,
-  name: PropTypes.string,
+  /** Bootstrap's column size */
   col: PropTypes.number,
-  update: PropTypes.func
+  /** Callback function when the input changes */
+  update: PropTypes.func.isRequired
+}
+
+StringInput.defaultProps = {
+  value: '',
+  col: 6
 }
 
 export default StringInput

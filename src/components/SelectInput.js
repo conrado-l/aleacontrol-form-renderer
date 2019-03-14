@@ -32,10 +32,21 @@ class SelectInput extends Component {
 }
 
 SelectInput.propTypes = {
-  options: PropTypes.array,
-  name: PropTypes.string,
+  /** Input's name */
+  name: PropTypes.string.isRequired,
+  /** Input's value */
   value: PropTypes.string,
+  /** Select options */
+  options: PropTypes.array.isRequired,
+  /** Bootstrap's column size */
   col: PropTypes.number,
-  update: PropTypes.func
+  /** Callback function when the input changes */
+  update: PropTypes.func.isRequired
 }
+
+SelectInput.defaultProps = {
+  value: '',
+  col: 6
+}
+
 export default SelectInput

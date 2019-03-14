@@ -68,7 +68,7 @@
       }
     ],
     "component": "select",
-    "col": 12
+    "col": 6
   },
   {
     "label": "Phone number",

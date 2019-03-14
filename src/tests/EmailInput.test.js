@@ -3,7 +3,6 @@ import { mount } from 'enzyme'
 import EmailInput from '../components/EmailInput'
 import renderer from 'react-test-renderer'
 
-const inputFn = jest.fn()
 describe('EmailInput', () => {
   const mockupProps = {
     name: 'email',
@@ -11,14 +10,16 @@ describe('EmailInput', () => {
   }
 
   it('should render correctly email component', () => {
+    const inputFn = jest.fn()
     const EmailInputComponent = renderer
-      .create(<EmailInput name={mockupProps.name} value={mockupProps.value} />)
+      .create(<EmailInput name={mockupProps.name} value={mockupProps.value} update={inputFn} />)
       .toJSON()
     expect(EmailInputComponent).toMatchSnapshot()
   })
 
   it('should render the input with the proper value and name', () => {
-    const component = mount(<EmailInput name={mockupProps.name} value={mockupProps.value} />)
+    const inputFn = jest.fn()
+    const component = mount(<EmailInput name={mockupProps.name} value={mockupProps.value} update={inputFn} />)
 
     expect(
       component.containsMatchingElement(
@@ -28,6 +29,7 @@ describe('EmailInput', () => {
   })
 
   it('should call the update callback function with proper parameters on input', () => {
+    const inputFn = jest.fn()
     const EmailInputComponent = mount(<EmailInput name={mockupProps.name} value={mockupProps.value} update={inputFn} />)
     const inputString = 'Aleacontrol'
 

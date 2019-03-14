@@ -4,7 +4,7 @@
     "name": "full_name",
     "value": "Paul Mendez",
     "component": "string",
-    "col": 12
+    "col": 10
   },
   {
     "label": "Address",
@@ -18,7 +18,7 @@
     "name": "favorite_brands",
     "value": ["ASUS", "MSi", "nVidia", "Intel", "AMD"],
     "component": "multistring",
-    "col": 6
+    "col": 5
   },
   {
     "label": "Preferred OS",

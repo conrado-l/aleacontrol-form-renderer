@@ -27,7 +27,7 @@ class PhoneInput extends Component {
    */
   updatePhone (inputKey, inputValue) {
     this.setState({ [inputKey]: inputValue }, () => {
-      this.props.update('phone', this.state)
+      this.props.update(this.props.name, this.state)
     })
   }
 
@@ -35,10 +35,10 @@ class PhoneInput extends Component {
     return (
       <Row>
         <Col xs={12} sm={this.props.col}>
-          <SelectInput name='ext' value={this.state.ext} options={this.props.options} update={this.updatePhone} />
+          <SelectInput name='ext' value={this.state.ext} options={this.props.options} col={12} update={this.updatePhone} />
         </Col>
         <Col xs={12} sm={this.props.col}>
-          <StringInput name='phone' value={this.state.phone} update={this.updatePhone} />
+          <StringInput name='phone' value={this.state.phone} col={12} update={this.updatePhone} />
         </Col>
       </Row>
     )
@@ -46,10 +46,21 @@ class PhoneInput extends Component {
 }
 
 PhoneInput.propTypes = {
+  /** Input's name */
+  name: PropTypes.string.isRequired,
+  /** Input's value */
   value: PropTypes.object,
-  options: PropTypes.array,
+  /** Ext options */
+  options: PropTypes.array.isRequired,
+  /** Bootstrap's column size */
   col: PropTypes.number,
-  update: PropTypes.func
+  /** Callback function when the input changes */
+  update: PropTypes.func.isRequired
+}
+
+PhoneInput.defaultProps = {
+  value: { phone: '', ext: '' },
+  col: 6
 }
 
 export default PhoneInput

@@ -13,39 +13,42 @@ describe('SelectInput', () => {
   }
 
   it('should render correctly select component', () => {
-    const SelectInputComponent = renderer
-      .create(<SelectInput name={mockupProps.name} value={mockupProps.value} options={mockupProps.options} />)
+    const inputFn = jest.fn()
+    const SelectInputSelectInputComponent = renderer
+      .create(<SelectInput name={mockupProps.name} value={mockupProps.value} options={mockupProps.options}
+        update={inputFn} />)
       .toJSON()
-    expect(SelectInputComponent).toMatchSnapshot()
+    expect(SelectInputSelectInputComponent).toMatchSnapshot()
   })
 
   it('should render the select options', () => {
-    const component = shallow(<SelectInput value={mockupProps.value} options={mockupProps.options} />)
+    const inputFn = jest.fn()
+    const SelectInputComponent = shallow(<SelectInput name={mockupProps.name} value={mockupProps.value}
+      options={mockupProps.options} update={inputFn} />)
 
     expect(
-      component.containsMatchingElement(
+      SelectInputComponent.containsMatchingElement(
         <option value={mockupProps.options[0].value}>{mockupProps.options[0].description}</option>
-
       )
     ).toBeTruthy()
 
     expect(
-      component.containsMatchingElement(
+      SelectInputComponent.containsMatchingElement(
         <option value={mockupProps.options[1].value}>{mockupProps.options[1].description}</option>
       )
     ).toBeTruthy()
   })
 
   it('should call the update callback function with the proper values on change', () => {
-    const changFn = jest.fn()
-    const component = mount(<SelectInput update={changFn} name={mockupProps.name} value={mockupProps.value}
-      options={mockupProps.options} />)
-    component.find('select').simulate('change', {
+    const inputFn = jest.fn()
+    const SelectInputComponent = mount(<SelectInput name={mockupProps.name} value={mockupProps.value}
+      options={mockupProps.options} update={inputFn} />)
+    SelectInputComponent.find('select').simulate('change', {
       target: {
-        value: component.props().options[0].value
+        value: SelectInputComponent.props().options[0].value
       }
     })
 
-    expect(changFn).toHaveBeenCalledWith(mockupProps.name, component.props().options[0].value)
+    expect(inputFn).toHaveBeenCalledWith(mockupProps.name, SelectInputComponent.props().options[0].value)
   })
 })

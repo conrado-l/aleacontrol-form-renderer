@@ -8,17 +8,18 @@ describe('StringInput', () => {
     name: 'first_name',
     value: 'Paul'
   }
-  const inputFn = jest.fn()
 
   it('should render correctly string component', () => {
+    const inputFn = jest.fn()
     const StringInputComponent = renderer
-      .create(<StringInput name={mockupProps.name} value={mockupProps.value} />)
+      .create(<StringInput name={mockupProps.name} value={mockupProps.value} update={inputFn} />)
       .toJSON()
     expect(StringInputComponent).toMatchSnapshot()
   })
 
   it('should render the input with the proper value and name', () => {
-    const component = mount(<StringInput name={mockupProps.name} value={mockupProps.value} />)
+    const inputFn = jest.fn()
+    const component = mount(<StringInput name={mockupProps.name} value={mockupProps.value} update={inputFn} />)
 
     expect(
       component.containsMatchingElement(
@@ -28,6 +29,7 @@ describe('StringInput', () => {
   })
 
   it('should call the update callback function with proper parameters on input', () => {
+    const inputFn = jest.fn()
     const StringInputComponent = mount(<StringInput name={mockupProps.name} value={mockupProps.value} update={inputFn} />)
     const inputString = 'Aleacontrol'
 

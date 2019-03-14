@@ -1,0 +1,19 @@
+---
+name: EmailInput
+---
+
+import { Playground, PropsTable } from 'docz'
+import EmailInput from '../../src/components/EmailInput.js'
+import 'bootstrap/dist/css/bootstrap.min.css'
+
+# EmailInput
+
+<PropsTable of={EmailInput} />
+
+## Description
+A simple email input
+## Demo and usage
+
+<Playground>
+    <EmailInput value='info@aleacontrol.com' name='email' col={4} update={(e) => e}/>
+</Playground>
