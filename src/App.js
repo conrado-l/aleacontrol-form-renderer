@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import FormRenderer from './components/FormRenderer'
 import Container from 'react-bootstrap/Container'
-import ActionButton from './components/ActionButton'
+import Button from 'react-bootstrap/Button'
 import FormSample1 from './sample1'
 import FormSample2 from './sample2'
 import { JSONToObject } from './utils'
@@ -30,7 +30,7 @@ class App extends Component {
     return (
       <Container>
         <div className='d-flex justify-content-center mt-3'>
-          <ActionButton label='Change Form Sample' clicked={this.changeFormSample} />
+          <Button id='change-form-sample' variant='info' onClick={this.changeFormSample}> Change Form Sample </Button>
         </div>
         <FormRenderer inputs={this.state.form} />
       </Container>

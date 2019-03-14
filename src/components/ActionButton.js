@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Button from 'react-bootstrap/Button'
 import PropTypes from 'prop-types'
-import '../styles/ActionButton.scss'
 
 /**
  * Button that fires a callback function on click
@@ -9,8 +8,7 @@ import '../styles/ActionButton.scss'
 class ActionButton extends Component {
   render () {
     return (
-      <Button variant='info' className='change-data-button' onClick={this.props.clicked}>
-        {this.props.label}</Button>
+      <Button variant='info' onClick={this.props.clicked}> {this.props.label} </Button>
     )
   }
 }

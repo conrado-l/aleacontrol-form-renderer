@@ -7,7 +7,7 @@ import EmailInput from './EmailInput'
 import RadioInput from './RadioInput'
 import PhoneInput from './PhoneInput'
 import MultiStringInput from './MultiStringInput'
-// import GenericTextInput from './GenericTextInput' //uncomment for testing
+// import GenericTextInput from './GenericTextInput' // uncomment for testing
 import Form from 'react-bootstrap/Form'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'

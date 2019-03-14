@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button'
 import renderer from 'react-test-renderer'
 
 describe('ActionButton', () => {
-  it('should render correctly form source selector component', () => {
+  it('should render correctly action button component', () => {
     const clickFn = jest.fn()
     const ActionButtonComponent = renderer
       .create(<ActionButton clicked={clickFn} />)

@@ -48,7 +48,7 @@ class GenericTextInput extends Component {
       return (
         <Row>
           <Col xs={12} sm={this.props.col}>
-            <Form.control type={this.inputType()}
+            <Form.Control type={this.inputType()}
               name={this.props.name}
               value={this.state.value || ''}
               onChange={this.handleChange} />

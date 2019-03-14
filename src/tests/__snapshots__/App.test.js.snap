@@ -5,24 +5,17 @@ exports[`App should render correctly app component 1`] = `
   className="container"
 >
   <div
-    className="row"
+    className="d-flex justify-content-center mt-3"
   >
-    <div
-      className="mx-auto col-xl-6 col-md-8 col-12"
+    <button
+      className="btn btn-info"
+      disabled={false}
+      id="change-form-sample"
+      onClick={[Function]}
+      type="button"
     >
-      <div
-        className="form-source-selector w-100 mt-2 d-flex align-content-center justify-content-around"
-      >
-        <button
-          className="change-data-button btn btn-outline-info"
-          disabled={false}
-          onClick={[Function]}
-          type="button"
-        >
-          Change Form Sample
-        </button>
-      </div>
-    </div>
+       Change Form Sample 
+    </button>
   </div>
   <div
     className="row"

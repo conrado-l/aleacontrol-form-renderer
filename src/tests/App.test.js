@@ -3,7 +3,6 @@ import { mount } from 'enzyme'
 import App from '../App'
 import renderer from 'react-test-renderer'
 import FormRenderer from '../components/FormRenderer'
-import ActionButton from '../components/ActionButton'
 import SampleForm1 from '../sample1'
 import SampleForm2 from '../sample2'
 import { JSONToObject } from '../utils'
@@ -21,9 +20,9 @@ describe('App', () => {
     expect(AppComponent.find(FormRenderer)).toHaveLength(1)
   })
 
-  it('should render the form source selector component', () => {
+  it('should render the action button component', () => {
     const AppComponent = mount(<App />)
-    expect(AppComponent.find(ActionButton)).toHaveLength(1)
+    expect(AppComponent.find('button#change-form-sample')).toHaveLength(1)
   })
 
   it('should have the parsed file sample1.json as initial/mounted state', () => {

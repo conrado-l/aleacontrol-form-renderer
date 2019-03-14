@@ -5,10 +5,12 @@ import renderer from 'react-test-renderer'
 
 describe('GenericTextInput', () => {
   const mockupEmailProps = {
+    component: 'email',
     name: 'email',
     value: 'paul@gmail.com'
   }
   const mockupTextProps = {
+    component: 'string',
     name: 'first_name',
     value: 'Paul'
   }
@@ -16,7 +18,7 @@ describe('GenericTextInput', () => {
   it('should render correctly generic text input component', () => {
     const inputFn = jest.fn()
     const GenericTextInputComponent = renderer
-      .create(<GenericTextInput component='email' name={mockupEmailProps.name} value={mockupEmailProps.value}
+      .create(<GenericTextInput component={mockupEmailProps.component} name={mockupEmailProps.name} value={mockupEmailProps.value}
         update={inputFn} />)
       .toJSON()
     expect(GenericTextInputComponent).toMatchSnapshot()
@@ -24,7 +26,7 @@ describe('GenericTextInput', () => {
 
   it('should render the email input with the proper value and name', () => {
     const inputFn = jest.fn()
-    const GenericTextInputComponent = mount(<GenericTextInput component='email' name={mockupEmailProps.name}
+    const GenericTextInputComponent = mount(<GenericTextInput component={mockupEmailProps.component} name={mockupEmailProps.name}
       value={mockupEmailProps.value} update={inputFn} />)
     expect(
       GenericTextInputComponent.containsMatchingElement(
@@ -35,7 +37,7 @@ describe('GenericTextInput', () => {
 
   it('should render the text input with the proper value and name', () => {
     const inputFn = jest.fn()
-    const GenericTextInputComponent = mount(<GenericTextInput component='string' name={mockupTextProps.name}
+    const GenericTextInputComponent = mount(<GenericTextInput component={mockupTextProps.component} name={mockupTextProps.name}
       value={mockupTextProps.value} update={inputFn} />)
 
     expect(
