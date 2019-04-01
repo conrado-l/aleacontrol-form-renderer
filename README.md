@@ -1,8 +1,8 @@
-# Dynamic form generation based on a JSON file - Aleacontrol
+# Dynamic form generation based on a JSON file
 
 ## Requirements
 
-* Node 10.15.2
+* NodeJS 10.15.2
 
 
 ## Installation
